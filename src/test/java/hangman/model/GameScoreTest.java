@@ -18,7 +18,7 @@ public class GameScoreTest {
      * 501(500,inf)|invalido
      */
     @Test
-    public void OriginalScore_without_going_out_of_range_valid() throws ScoreException{
+    public void OriginalScore_without_going_out_of_range_valid() {
         //arrange
         int correctCount =10;
         int incorrectCount = 2;
@@ -29,69 +29,69 @@ public class GameScoreTest {
         assertEquals(expected, original.calculateScore(correctCount, incorrectCount));
     }
     @Test
-    public void OriginalScore_went_out_of_range_invalid() throws ScoreException{
+    public void OriginalScore_went_out_of_range_invalid() {
         //arrange
         int correctCount =3;
         int incorrectCount = 11;
-        int expected = -10;
+        int expected = 0;
         //act
         GameScore original = new OriginalScore();
         //assert
         assertEquals(expected, original.calculateScore(correctCount, incorrectCount));
     }
     @Test
-    public void BonusScore_without_going_out_of_range_valid() throws ScoreException{
+    public void BonusScore_without_going_out_of_range_valid(){
         //arrange
-        int correctCount =1;
-        int incorrectCount = 1;
-        int expected = 5;
+        int correctCount =4;
+        int incorrectCount = 3;
+        int expected = 25;
         //act
-        GameScore original = new OriginalScore();
+        GameScore Bonus = new BonusScore();
         //assert
-        assertEquals(expected, original.calculateScore(correctCount, incorrectCount));
+        assertEquals(expected, Bonus.calculateScore(correctCount, incorrectCount));
     }
     @Test
-    public void BonusScore_went_out_of_range_invalid() throws ScoreException{
+    public void BonusScore_went_out_of_range_invalid(){
         //arrange
         int correctCount =1;
         int incorrectCount = 3;
-        int expected = -5;
+        int expected = 0;
         //act
-        GameScore original = new OriginalScore();
+        GameScore Bonus = new BonusScore();
         //assert
-        assertEquals(expected, original.calculateScore(correctCount, incorrectCount));
+        assertEquals(expected, Bonus.calculateScore(correctCount, incorrectCount));
     }
     @Test
-    public void PowerScore_without_going_out_of_range_valid() throws ScoreException{
+    public void PowerScore_without_going_out_of_range_valid() {
         //arrange
         int correctCount =3;
         int incorrectCount = 1;
         int expected = 117;
         //act
-        GameScore original = new OriginalScore();
+        GameScore Power = new PowerScore();
         //assert
-        assertEquals(expected, original.calculateScore(correctCount, incorrectCount));
+        assertEquals(expected, Power.calculateScore(correctCount, incorrectCount));
     }
     @Test
-    public void PowerScore_went_out_of_range_invalid_negative() throws ScoreException{
+    public void PowerScore_went_out_of_range_invalid_negative() {
         //arrange
         int correctCount =1;
         int incorrectCount = 1;
-        int expected = -3;
+        int expected = 0;
         //act
-        GameScore original = new OriginalScore();
+        GameScore Power = new PowerScore();
         //assert
-        assertEquals(expected, original.calculateScore(correctCount, incorrectCount));
+        assertEquals(expected, Power.calculateScore(correctCount, incorrectCount));
     }
     @Test
-    public void PowerScore_went_out_of_range_invalid() throws ScoreException{
+    public void PowerScore_went_out_of_range_invalid(){
         //arrange
         int correctCount =4;
         int incorrectCount = 3;
-        int expected = 601;
+        int expected = 500;
         //act
-        GameScore original = new OriginalScore();
+        GameScore Power = new PowerScore();
         //assert
-        assertEquals(expected, original.calculateScore(correctCount, incorrectCount));
+        assertEquals(expected, Power.calculateScore(correctCount, incorrectCount));
     }
 }

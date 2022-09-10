@@ -14,8 +14,19 @@ public class PowerScore implements GameScore{
      * @param incorrectCount
      * @throws ScoreException
      */
+    private int calculado =0;
     @Override
     public int calculateScore(int correctCount, int incorrectCount){
-        return 0;
+        
+        calculado += Math.pow(5, correctCount);
+        calculado -= 8*incorrectCount;
+        if(calculado >500){
+            return 500;
+        } else if (calculado<0) {
+            return 0;
+
+        }
+        return calculado;
     }
+
 }

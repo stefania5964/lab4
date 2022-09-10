@@ -13,8 +13,11 @@ public class OriginalScore implements GameScore{
      */
 
     @Override
-    public int calculateScore(int correctCount, int incorrectCount) throws ScoreException{
-
-        return 0;
+    public int calculateScore(int correctCount, int incorrectCount) {
+        int result=0;
+        if (incorrectCount < 10) {
+            result = 100- incorrectCount*10;
+        }
+        return result;
     }
 }
