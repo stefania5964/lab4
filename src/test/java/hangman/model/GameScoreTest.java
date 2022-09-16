@@ -53,8 +53,8 @@ public class GameScoreTest {
     @Test
     public void BonusScore_went_out_of_range_invalid(){
         //arrange
-        int correctCount =1;
-        int incorrectCount = 3;
+        int correctCount =0;
+        int incorrectCount = 1;
         int expected = 0;
         //act
         GameScore Bonus = new BonusScore();

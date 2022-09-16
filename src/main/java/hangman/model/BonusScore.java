@@ -10,15 +10,19 @@ public class BonusScore implements GameScore{
      *
      * @param correctCount
      * @param incorrectCount
-     * @throws ScoreException
+     *
      */
-
+    private int result = 0;
     @Override
     public int calculateScore(int correctCount, int incorrectCount){
-        int result = 0;
-        if(incorrectCount<=correctCount*2||correctCount < 0 || incorrectCount < 0){
-            result= correctCount*10-incorrectCount*5;
-        }
-        return result;
+
+
+        result = correctCount*10-incorrectCount*5;
+        if(result-(incorrectCount*5)<0){
+            return 0;
+        }else
+            return result;
+
+
     }
 }
