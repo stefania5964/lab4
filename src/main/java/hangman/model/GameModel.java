@@ -76,11 +76,11 @@ public class GameModel {
         }
         if(positions.size() == 0){
             incorrectCount++;
-            //gameScore -= 10;
+            gameScore -= 10;
         } else {
             correctCount += positions.size();
         }
-        gameScore = scoreModel.calculateScore(correctCount,incorrectCount);
+        //gameScore = scoreModel.calculateScore(correctCount,incorrectCount);
         return positions;
     }
     
